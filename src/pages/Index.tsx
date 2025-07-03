@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { MapView } from '@/components/MapView';
@@ -68,7 +69,7 @@ const Index = () => {
         .from('reports')
         .select(`
           *,
-          profiles!reports_user_id_fkey(full_name)
+          profiles(full_name)
         `)
         .order('created_at', { ascending: false });
 

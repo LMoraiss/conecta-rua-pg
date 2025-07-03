@@ -32,7 +32,7 @@ export const ReportDetailsModal = ({ report, onClose }: ReportDetailsModalProps)
         .from('comments')
         .select(`
           *,
-          profiles!comments_user_id_fkey(full_name)
+          profiles(full_name)
         `)
         .eq('report_id', report.id)
         .order('created_at', { ascending: true });
